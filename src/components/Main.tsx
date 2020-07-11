@@ -7,19 +7,13 @@ export interface Props {
   enthusiasmLevel?: number;
 }
 
-function Main({ name, enthusiasmLevel = 1 }: Props) {
-  if (enthusiasmLevel <= 0) {
-    throw new Error('You could be a little more enthusiastic. :D');
-  }
-
+function Main() {
   return (
-    <div className="hello">
-      <div className="greeting">
-        <p>mean: {mean(data_1234.data)}</p>
-        <p>median: {median(data_1234.data)}</p>
-        <p>standard deviation: {standard_deviation(data_1234.data)}</p>
-        <p>mean: {mean(data_1234.data)}</p>
-      </div>
+    <div>
+      <p>mean: {mean(data_1234.data)}</p>
+      <p>median: {median(data_1234.data)}</p>
+      <p>standard deviation: {standard_deviation(data_1234.data)}</p>
+      <p>mean: {mean(data_1234.data)}</p>
     </div>
   );
 }

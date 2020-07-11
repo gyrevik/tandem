@@ -6,7 +6,7 @@ import Main from './components/Main';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Main name="TypeScript" enthusiasmLevel={2} />
+    <Main />
   </React.StrictMode>,
   document.getElementById('root')
 );
