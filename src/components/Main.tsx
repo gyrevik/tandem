@@ -1,10 +1,18 @@
-import * as React from 'react';
-import * as _ from "lodash";
+//import * as React from 'react';
+import React, { useState } from 'react';
+import * as _ from 'lodash';
 import { Toggle } from './Toggle';
+
 var data_1234 = require('../data/data-1234.json');
 var data_4321 = require('../data/data-4321.json');
 
 function Main() {
+  const [data, setData] = useState('data-1234');
+
+  function toggleClickHandler() {
+    console.log(data);
+  }
+
   return (
     <div>
       <p>mean: {mean(data_1234.data)}</p>
@@ -20,9 +28,9 @@ function Main() {
 export default Main;
 
 // helpers
-function toggleClickHandler() {
-  console.log('toggleClickHandler');
-}
+
+
+
 
 function mean(arr: Array<number>) {
   return arr.reduce((accumulator, currentValue) => accumulator + currentValue) / arr.length;
