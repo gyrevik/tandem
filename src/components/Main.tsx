@@ -11,6 +11,8 @@ function Main() {
 
   function toggleClickHandler() {
     console.log(data);
+    if (data === 'data-1234')
+      console.log('got ' + data)
   }
 
   return (
