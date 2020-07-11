@@ -14,9 +14,10 @@ function Main({ name, enthusiasmLevel = 1 }: Props) {
   return (
     <div className="hello">
       <div className="greeting">
-        Hello {name + getExclamationMarks(enthusiasmLevel)}
-        data: {data_1234.data[1]}
-        mean: {mean(data_1234.data)}
+        <p>mean: {mean(data_1234.data)}</p>
+        <p>median: {median(data_1234.data)}</p>
+        <p>mean: {mean(data_1234.data)}</p>
+        <p>mean: {mean(data_1234.data)}</p>
       </div>
     </div>
   );
@@ -29,18 +30,15 @@ function getExclamationMarks(numChars: number) {
   return Array(numChars + 1).join('!');
 }
 
-//const data_1234_mean = Array(data_1234.data).reduce(function(a, b){ return a + b; 0 }) / Array(data_1234.data).length; 
-
 function mean(arr: Array<number>) {
-  //var mean: number = arr.reduce(function(a, b){ return a + b; 0 }) / arr.length; 
-  let total = [0, 1, 2, 3].reduce((accumulator, currentValue) => accumulator + currentValue);
-  let sum  = arr.reduce((accumulator, currentValue) => accumulator + currentValue);
-  return sum/arr.length
+  return arr.reduce((accumulator, currentValue) => accumulator + currentValue) / arr.length;
 }
 
-function median(numChars: number) {
-  return Array(numChars + 1).join('!');
-}
+function median(arr: Array<number>) {
+  const mid = Math.floor(arr.length / 2),
+    nums = [...arr].sort((a, b) => a - b);
+  return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+};
 
 function standard_deviation(numChars: number) {
   return Array(numChars + 1).join('!');
