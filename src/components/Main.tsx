@@ -1,6 +1,8 @@
 import * as React from 'react';
 import * as _ from "lodash";
+import { Toggle } from './Toggle';
 var data_1234 = require('../data/data-1234.json');
+var data_4321 = require('../data/data-4321.json');
 
 function Main() {
   return (
@@ -9,6 +11,8 @@ function Main() {
       <p>median: {median(data_1234.data)}</p>
       <p>standard deviation: {standard_deviation(data_1234.data)}</p>
       <p>mode: {mode(data_1234.data)}</p>
+      
+      <Toggle ClickHandler={toggleClickHandler} />
     </div>
   );
 }
@@ -16,6 +20,10 @@ function Main() {
 export default Main;
 
 // helpers
+function toggleClickHandler() {
+  console.log('toggleClickHandler');
+}
+
 function mean(arr: Array<number>) {
   return arr.reduce((accumulator, currentValue) => accumulator + currentValue) / arr.length;
 }
@@ -23,6 +31,7 @@ function mean(arr: Array<number>) {
 function median(arr: Array<number>) {
   const mid = Math.floor(arr.length / 2),
     nums = [...arr].sort((a, b) => a - b);
+    console.log('test')
   return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
 };
 
