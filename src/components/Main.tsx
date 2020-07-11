@@ -27,3 +27,21 @@ export default Main;
 function getExclamationMarks(numChars: number) {
   return Array(numChars + 1).join('!');
 }
+
+const data_1234_mean = Array(data_1234.data).reduce(function(a, b){ return a + b; 0 }) / Array(data_1234.data).length; 
+
+function mean(arr: Array<number>) {
+  return arr.reduce(function(a, b){ return a + b; 0 }) / arr.length; 
+}
+
+function median(numChars: number) {
+  return Array(numChars + 1).join('!');
+}
+
+function standard_deviation(numChars: number) {
+  return Array(numChars + 1).join('!');
+}
+
+function mode(numChars: number) {
+  return Array(numChars + 1).join('!');
+}
