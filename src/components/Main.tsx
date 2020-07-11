@@ -16,6 +16,7 @@ function Main({ name, enthusiasmLevel = 1 }: Props) {
       <div className="greeting">
         Hello {name + getExclamationMarks(enthusiasmLevel)}
         data: {data_1234.data[1]}
+        mean: {mean(data_1234.data)}
       </div>
     </div>
   );
@@ -28,10 +29,13 @@ function getExclamationMarks(numChars: number) {
   return Array(numChars + 1).join('!');
 }
 
-const data_1234_mean = Array(data_1234.data).reduce(function(a, b){ return a + b; 0 }) / Array(data_1234.data).length; 
+//const data_1234_mean = Array(data_1234.data).reduce(function(a, b){ return a + b; 0 }) / Array(data_1234.data).length; 
 
 function mean(arr: Array<number>) {
-  return arr.reduce(function(a, b){ return a + b; 0 }) / arr.length; 
+  //var mean: number = arr.reduce(function(a, b){ return a + b; 0 }) / arr.length; 
+  let total = [0, 1, 2, 3].reduce((accumulator, currentValue) => accumulator + currentValue);
+  let sum  = arr.reduce((accumulator, currentValue) => accumulator + currentValue);
+  return sum/arr.length
 }
 
 function median(numChars: number) {
