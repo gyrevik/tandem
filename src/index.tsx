@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import Main from './components/Main';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Main name="TypeScript" enthusiasmLevel={2} />
   </React.StrictMode>,
   document.getElementById('root')
 );
