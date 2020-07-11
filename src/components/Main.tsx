@@ -10,14 +10,13 @@ function Main() {
   const [data, setData] = useState(data_1234.data);
 
   function toggleClickHandler() {
-    console.log(data);
-    if (data === 'data_1234.data') {
-      console.log('got ' + data)
-      setData('data_4321.data')
+    if (data === data_1234.data) {
+      console.log('got 1234')
+      setData(data_4321.data)
     } else {
-      setData('data_1234.data')
+      console.log('got 4321')
+      setData(data_1234.data)
     }
-
   }
 
   return (
@@ -36,10 +35,6 @@ function Main() {
 export default Main;
 
 // helpers
-
-
-
-
 function mean(arr: Array<number>) {
   return arr.reduce((accumulator, currentValue) => accumulator + currentValue) / arr.length;
 }
@@ -47,7 +42,6 @@ function mean(arr: Array<number>) {
 function median(arr: Array<number>) {
   const mid = Math.floor(arr.length / 2),
     nums = [...arr].sort((a, b) => a - b);
-    console.log('test')
   return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
 };
 
