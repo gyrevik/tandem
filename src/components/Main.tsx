@@ -7,16 +7,22 @@ var data_1234 = require('../data/data-1234.json');
 var data_4321 = require('../data/data-4321.json');
 
 function Main() {
-  const [data, setData] = useState('data-1234');
+  const [data, setData] = useState('data_1234.data');
 
   function toggleClickHandler() {
     console.log(data);
-    if (data === 'data-1234')
+    if (data === 'data_1234.data') {
       console.log('got ' + data)
+      setData('data_4321.data')
+    } else {
+      setData('data_1234.data')
+    }
+
   }
 
   return (
     <div>
+      <p>{data}</p>
       <p>mean: {mean(data_1234.data)}</p>
       <p>median: {median(data_1234.data)}</p>
       <p>standard deviation: {standard_deviation(data_1234.data)}</p>
