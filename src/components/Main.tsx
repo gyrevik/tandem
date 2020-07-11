@@ -21,11 +21,10 @@ function Main() {
 
   return (
     <div>
-      <p>state: {data}</p>
       <p>mean: {mean(data)}</p>
-      <p>median: {median(data_1234.data)}</p>
-      <p>standard deviation: {standard_deviation(data_1234.data)}</p>
-      <p>mode: {mode(data_1234.data)}</p>
+      <p>median: {median(data)}</p>
+      <p>standard deviation: {standard_deviation(data)}</p>
+      <p>mode: {mode(data)}</p>
       
       <Toggle ClickHandler={toggleClickHandler} />
     </div>
