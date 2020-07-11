@@ -16,7 +16,7 @@ function Main({ name, enthusiasmLevel = 1 }: Props) {
       <div className="greeting">
         <p>mean: {mean(data_1234.data)}</p>
         <p>median: {median(data_1234.data)}</p>
-        <p>mean: {mean(data_1234.data)}</p>
+        <p>standard deviation: {standard_deviation(data_1234.data)}</p>
         <p>mean: {mean(data_1234.data)}</p>
       </div>
     </div>
@@ -46,4 +46,28 @@ function standard_deviation(numChars: number) {
 
 function mode(numChars: number) {
   return Array(numChars + 1).join('!');
+}
+
+function standardDeviation(values: Array<number>){
+  var avg = average(values);
+  
+  var squareDiffs = values.map(function(value){
+    var diff = value - avg;
+    var sqrDiff = diff * diff;
+    return sqrDiff;
+  });
+  
+  var avgSquareDiff = average(squareDiffs);
+
+  var stdDev = Math.sqrt(avgSquareDiff);
+  return stdDev;
+}
+
+function average(data: Array<number>){
+  var sum = data.reduce(function(sum, value){
+    return sum + value;
+  }, 0);
+
+  var avg = sum / data.length;
+  return avg;
 }
