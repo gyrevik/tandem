@@ -10,13 +10,10 @@ function Main() {
   const [data, setData] = useState(data_1234.data);
 
   function toggleClickHandler() {
-    if (data === data_1234.data) {
-      console.log('got 1234')
+    if (data === data_1234.data)
       setData(data_4321.data)
-    } else {
-      console.log('got 4321')
+    else
       setData(data_1234.data)
-    }
   }
 
   return (
