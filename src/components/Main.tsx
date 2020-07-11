@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as _ from "lodash";
 var data_1234 = require('../data/data-1234.json');
 
 export interface Props {
