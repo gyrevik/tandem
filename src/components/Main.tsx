@@ -12,7 +12,7 @@ function Main() {
     <div>
       <p>mean: {mean(data_1234.data)}</p>
       <p>median: {median(data_1234.data)}</p>
-      <p>standard deviation: {standard_deviation(data_1234.data)}</p>
+      <p>standard deviation: {sd(data_1234.data)}</p>
       <p>mean: {mean(data_1234.data)}</p>
     </div>
   );
@@ -66,3 +66,8 @@ function average(data: Array<number>){
   var avg = sum / data.length;
   return avg;
 }
+
+function sd(array: Array<number>) {
+  var avg = _.sum(array) / array.length;
+  return Math.sqrt(_.sum(_.map(array, (i) => Math.pow((i - avg), 2))) / array.length);
+};
