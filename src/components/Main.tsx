@@ -1,4 +1,5 @@
 import * as React from 'react';
+var data_1234 = require('../data/data-1234.json');
 
 export interface Props {
   name: string;
@@ -14,6 +15,7 @@ function Main({ name, enthusiasmLevel = 1 }: Props) {
     <div className="hello">
       <div className="greeting">
         Hello {name + getExclamationMarks(enthusiasmLevel)}
+        data: {data_1234.data[1]}
       </div>
     </div>
   );
