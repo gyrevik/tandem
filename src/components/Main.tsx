@@ -24,7 +24,7 @@ function Main() {
 
   return (
     <div className="App">
-      <SimpleCard />
+      <SimpleCard label='mean' value={mean(data)} />
       <div>mean: {mean(data)}</div>
       <div>median: {median(data)}</div>
       <div>standard deviation: {standard_deviation(data)}</div>
