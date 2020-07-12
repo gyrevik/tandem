@@ -12,12 +12,10 @@ function Main() {
 
   function toggleClickHandler() {
     setDataCategory((dataCategory === '1234') ? '4321' : '1234')
-    console.log('toggle dataCategory:', dataCategory)
   }
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log('useEffect dataCategory:', dataCategory)
       const response = await axios.get(`http://localhost:8080/${dataCategory}`);
       setData(response.data.data);
     }
@@ -40,12 +38,7 @@ function Main() {
 export default Main;
 
 // helpers
-function getData(url: string) {
-  
-}
-
 function mean(arr: Array<number>) {
-  //console.log('arr:', arr)
   return arr.reduce((accumulator, currentValue) => accumulator + currentValue) / arr.length;
 }
 
