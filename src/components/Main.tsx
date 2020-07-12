@@ -45,8 +45,8 @@ function Main() {
 
   return (
     <div className="App">
-      <Tile label='mean' value={String(mean(data))} />
-      <Tile label='median' value={String(median(data))} />
+      <Tile label='mean' value={String(Math.round(mean(data)))} />
+      <Tile label='median' value={String(median(data).toFixed(6))} />
       <Tile label='standard deviation' value={String(standard_deviation(data))} />
       <Tile label='mode' value={String(mode(data))} />
       <p />
