@@ -12,11 +12,6 @@ function Main() {
   const [dataCategory, setDataCategory] = useState('1234');
   const [inputValue, setInputValue] = useState<string>("");
 
-  function handleInput(ev: React.ChangeEvent<HTMLInputElement>) {
-    ev.preventDefault();
-    setInputValue(ev.target.value)
-  }
-
   function toggleClickHandler() {
     setDataCategory((dataCategory === '1234') ? '4321' : '1234')
   }
@@ -45,6 +40,8 @@ function Main() {
 
   return (
     <div className="App">
+      <p />
+      {dataCategory === '1234' ? 'data-1234.json' : 'data-4321.json'}
       <Tile label='mean' value={String(mean(data).toFixed(6))} />
       <Tile label='median' value={String(median(data).toFixed(6))} />
       <Tile label='standard deviation' value={String(standard_deviation_2(data).toFixed(6))} />
