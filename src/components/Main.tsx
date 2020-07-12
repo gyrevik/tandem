@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import * as _ from 'lodash';
 import axios from 'axios';
+import { mean } from '../util/util';
 import { TextField } from '@material-ui/core';
 import { MyButton } from './MyButton';
 import SimpleTable from './Table';
@@ -64,9 +65,7 @@ function Main() {
 export default Main;
 
 // helpers
-function mean(arr: Array<number>) {
-  return arr.reduce((accumulator, currentValue) => accumulator + currentValue) / arr.length;
-}
+
 
 function median(arr: Array<number>) {
   const mid = Math.floor(arr.length / 2),
