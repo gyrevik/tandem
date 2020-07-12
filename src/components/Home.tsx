@@ -46,7 +46,6 @@ function Home() {
   }, [endPoint]);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    console.log('handleChange:', e.target.value);
     setInputValue(e.target.value);
   }
 
