@@ -11,18 +11,16 @@ import { trim } from 'lodash';
 function Home() {
   const [data, setData] = useState([0]);
   const [dataCategory, setDataCategory] = useState('1234');
-  const [inputValue, setInputValue] = useState<string>("");
+  const [inputValue, setInputValue] = useState<string>("42");
 
   function toggleClickHandler() {
     setDataCategory((dataCategory === '1234') ? '4321' : '1234')
   }
 
   function addClickHandler() {
-    console.log('addClickHandler inputValue:', inputValue);
     if (trim(inputValue) === '') return;
     data.push(Number(inputValue));
     setData([...data]);
-    console.log('data:', data);
   }
 
   useEffect(() => {
