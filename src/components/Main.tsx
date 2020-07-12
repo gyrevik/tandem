@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import * as _ from 'lodash';
 import axios from 'axios';
+import { TextField } from '@material-ui/core';
 import { MyButton } from './MyButton';
 import Tile from './Tile';
 
@@ -22,6 +23,20 @@ function Main() {
     fetchData();
   }, [dataCategory]);
 
+  const Input = (): JSX.Element => {
+    const [inputValue, setInputValue] = useState<string>("");
+    console.log('inputValue:', inputValue)
+    return (
+        <input
+            type="text"
+            value={inputValue}
+            onChange={(
+                ev: React.ChangeEvent<HTMLInputElement>,
+            ): void => setInputValue(ev.target.value)}
+        />
+    );
+  };
+
   return (
     <div className="App">
       <Tile label='mean' value={String(mean(data))} />
@@ -30,6 +45,9 @@ function Main() {
       <Tile label='mode' value={String(mode(data))} />
       <p />
       <MyButton ClickHandler={toggleClickHandler} message={'Change Data Set'} />
+      <p />
+      <TextField id="standard-basic" label="Standard" />
+      <Input />
     </div>
   );
 }
