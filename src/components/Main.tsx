@@ -3,9 +3,6 @@ import * as _ from 'lodash';
 import axios from 'axios';
 import { Toggle } from './Toggle';
 
-//var data_1234 = require('../data/data-1234.json');
-//var data_4321 = require('../data/data-4321.json');
-
 function Main() {
   const [data, setData] = useState([0]);
   const [dataCategory, setDataCategory] = useState('1234');
