@@ -26,7 +26,7 @@ type CardProps = {
     value: string
   }
 
-export default function StringCard({ label, value }: CardProps) {
+export default function Tile({ label, value }: CardProps) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
