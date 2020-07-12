@@ -26,7 +26,14 @@ const rows = [
   createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
-export default function SimpleTable() {
+type SimpleTableProps = {
+  mean: string,
+  median: string,
+  standardDeviation: string,
+  mode: string
+}
+
+export default function SimpleTable({ mean, median, standardDeviation, mode }: SimpleTableProps) {
   const classes = useStyles();
 
   return (
