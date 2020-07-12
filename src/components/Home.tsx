@@ -10,11 +10,24 @@ import { trim } from 'lodash';
 
 function Home() {
   const [data, setData] = useState([0]);
-  const [dataCategory, setDataCategory] = useState('1234');
-  const [inputValue, setInputValue] = useState<string>("42");
+  const [dataSource, setDataSource] = useState(config.data_source_1);
+  const [endPoint, setEndPoint] = useState(config.end_point_1);
+  const [inputValue, setInputValue] = useState<string>(config.default_add);
 
   function toggleClickHandler() {
-    setDataCategory((dataCategory === '1234') ? '4321' : '1234')
+    setDataSource((dataSource === config.data_source_1) ? config.data_source_2 : config.data_source_1)
+    switch (dataSource) {
+      case config.data_source_1: {
+        setDataSource(config.data_source_2);
+        setEndPoint(config.end_point_2);
+        break;
+      }
+      case config.data_source_2: {
+        setDataSource(config.data_source_1);
+        setEndPoint(config.end_point_1);
+        break;
+      }
+    }
   }
 
   function addClickHandler() {
@@ -25,12 +38,12 @@ function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(`${config.tandem_server_path}${dataCategory}`);
+      const response = await axios.get(`${config.tandem_server_path}${endPoint}`);
       setData(response.data.data);
     }
     
     fetchData();
-  }, [dataCategory]);
+  }, [endPoint]);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log('handleChange:', e.target.value);
@@ -40,7 +53,7 @@ function Home() {
   return (
     <div className="App">
       <p />
-      {`data-${dataCategory}.json`}
+      {dataSource}
 
       <SimpleTable 
         mean={String(mean(data).toFixed(6))} 

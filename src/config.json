@@ -1,9 +1,11 @@
 { 
     "tandem_server_path": "http://localhost:8080/",
     "data_prefix": "data-",
-    "data_category_1": "1234",
-    "data_category_2": "4321",
+    "end_point_1": "1234",
+    "end_point_2": "4321",
     "extension_1": ".json",
     "extension_2": ".json",
-    "default_add": 42
+    "data_source_1": "data-1234.json",
+    "data_source_2": "data-4321.json",
+    "default_add": "42"
 }
