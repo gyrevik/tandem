@@ -22,9 +22,9 @@ const useStyles = makeStyles({
 });
 
 type CardProps = {
-    label: string,
-    value: string
-  }
+  label: string,
+  value: string
+}
 
 export default function Tile({ label, value }: CardProps) {
   const classes = useStyles();
