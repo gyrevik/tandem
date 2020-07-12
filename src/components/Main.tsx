@@ -3,7 +3,7 @@ import '../App.css';
 import * as _ from 'lodash';
 import axios from 'axios';
 import { Toggle } from './Toggle';
-import SimpleCard from './SimpleCard';
+import SimpleCard from './StringCard';
 
 function Main() {
   const [data, setData] = useState([0]);
@@ -24,9 +24,9 @@ function Main() {
 
   return (
     <div className="App">
-      <SimpleCard label='mean' value={mean(data)} />
-      <SimpleCard label='median' value={median(data)} />
-      <SimpleCard label='standard deviation' value={standard_deviation(data)} />
+      <SimpleCard label='mean' value={String(mean(data))} />
+      <SimpleCard label='median' value={String(median(data))} />
+      <SimpleCard label='standard deviation' value={String(standard_deviation(data))} />
       <div>mode: {mode(data)}</div>
       
       <Toggle ClickHandler={toggleClickHandler} />
