@@ -18,7 +18,7 @@ function Main() {
 
   function addClickHandler() {
     console.log('addClickHandler inputValue:', inputValue);
-    if (trim(inputValue) == '') return;
+    if (trim(inputValue) === '') return;
     data.push(Number(inputValue));
     setData([...data]);
     console.log('data:', data);
