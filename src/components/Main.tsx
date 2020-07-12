@@ -9,9 +9,20 @@ import Tile from './Tile';
 function Main() {
   const [data, setData] = useState([0]);
   const [dataCategory, setDataCategory] = useState('1234');
+  const [inputValue, setInputValue] = useState<string>("");
+
+  function handleInput(ev: React.ChangeEvent<HTMLInputElement>) {
+    ev.preventDefault();
+    setInputValue(ev.target.value)
+  }
 
   function toggleClickHandler() {
     setDataCategory((dataCategory === '1234') ? '4321' : '1234')
+  }
+
+  function addClickHandler() {
+    console.log('addClickHandler')
+    console.log('inputValue:', inputValue)
   }
 
   useEffect(() => {
@@ -24,18 +35,28 @@ function Main() {
   }, [dataCategory]);
 
   const Input = (): JSX.Element => {
-    const [inputValue, setInputValue] = useState<string>("");
-    console.log('inputValue:', inputValue)
+    console.log('inputValue:', inputValue);
     return (
-        <input
-            type="text"
-            value={inputValue}
-            onChange={(
-                ev: React.ChangeEvent<HTMLInputElement>,
-            ): void => setInputValue(ev.target.value)}
-        />
+      <TextField
+        type="text"
+        value={inputValue}
+        id="standard-basic" 
+        label="Add Value" 
+        onChange={(
+          ev: React.ChangeEvent<HTMLInputElement>,
+        ): void => {
+          //setInputValue(ev.target.value)
+          handleInput(ev)
+        }}
+      />
     );
   };
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    // No longer need to cast to any - hooray for react!
+    console.log(e.target.value);
+    setInputValue(e.target.value);
+  }
 
   return (
     <div className="App">
@@ -46,8 +67,9 @@ function Main() {
       <p />
       <MyButton ClickHandler={toggleClickHandler} message={'Change Data Set'} />
       <p />
-      <TextField id="standard-basic" label="Standard" />
       <Input />
+      <MyButton ClickHandler={addClickHandler} message={'Add'} />
+      <input value={inputValue} onChange={handleChange} />
     </div>
   );
 }
