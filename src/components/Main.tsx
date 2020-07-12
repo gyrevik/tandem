@@ -21,8 +21,7 @@ function Main() {
   }
 
   function addClickHandler() {
-    console.log('addClickHandler')
-    console.log('inputValue:', inputValue)
+    console.log('addClickHandler inputValue:', inputValue)
   }
 
   useEffect(() => {
@@ -34,27 +33,8 @@ function Main() {
     fetchData();
   }, [dataCategory]);
 
-  const Input = (): JSX.Element => {
-    console.log('inputValue:', inputValue);
-    return (
-      <TextField
-        type="text"
-        value={inputValue}
-        id="standard-basic" 
-        label="Add Value" 
-        onChange={(
-          ev: React.ChangeEvent<HTMLInputElement>,
-        ): void => {
-          //setInputValue(ev.target.value)
-          handleInput(ev)
-        }}
-      />
-    );
-  };
-
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    // No longer need to cast to any - hooray for react!
-    console.log(e.target.value);
+    console.log('handleChange:', e.target.value);
     setInputValue(e.target.value);
   }
 
@@ -69,6 +49,7 @@ function Main() {
       <p />
       
       <TextField value={inputValue} onChange={handleChange} />
+      &nbsp;&nbsp;&nbsp;&nbsp;
       <MyButton ClickHandler={addClickHandler} message={'Add'} />
     </div>
   );
