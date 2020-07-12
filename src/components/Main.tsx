@@ -1,6 +1,6 @@
-//import * as React from 'react';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as _ from 'lodash';
+import axios from 'axios';
 import { Toggle } from './Toggle';
 
 var data_1234 = require('../data/data-1234.json');
@@ -10,10 +10,17 @@ function Main() {
   const [data, setData] = useState(data_1234.data);
 
   function toggleClickHandler() {
-    if (data === data_1234.data)
-      setData(data_4321.data)
-    else
+    if (data === data_1234.data) {
+      //setData(data_4321.data)
+      axios.get('http://localhost:8080/4321')
+      .then(res => {
+        //const persons = res.data;
+        console.log('res:', res)
+        setData(res.data.data);
+      })
+    } else {
       setData(data_1234.data)
+    }
   }
 
   return (
