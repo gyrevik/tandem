@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import '../App.css';
 import * as _ from 'lodash';
 import axios from 'axios';
 import { Toggle } from './Toggle';
+import SimpleCard from './SimpleCard';
 
 function Main() {
   const [data, setData] = useState([0]);
@@ -21,11 +23,12 @@ function Main() {
   }, [dataCategory]);
 
   return (
-    <div>
-      <p>mean: {mean(data)}</p>
-      <p>median: {median(data)}</p>
-      <p>standard deviation: {standard_deviation(data)}</p>
-      <p>mode: {mode(data)}</p>
+    <div className="App">
+      <SimpleCard />
+      <div>mean: {mean(data)}</div>
+      <div>median: {median(data)}</div>
+      <div>standard deviation: {standard_deviation(data)}</div>
+      <div>mode: {mode(data)}</div>
       
       <Toggle ClickHandler={toggleClickHandler} />
     </div>
@@ -46,9 +49,6 @@ function median(arr: Array<number>) {
 };
 
 function mode(numbers: Array<number>) {
-  // as result can be bimodal or multi-modal,
-  // the returned result is provided as an array
-  // mode of [3, 5, 4, 4, 1, 1, 2, 3] = [1, 3, 4]
   var modes = [], count: Array<number> = [], i, number, maxIndex = 0;
 
   for (i = 0; i < numbers.length; i += 1) {
