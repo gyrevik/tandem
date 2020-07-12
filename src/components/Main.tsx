@@ -3,25 +3,27 @@ import * as _ from 'lodash';
 import axios from 'axios';
 import { Toggle } from './Toggle';
 
-var data_1234 = require('../data/data-1234.json');
-var data_4321 = require('../data/data-4321.json');
+//var data_1234 = require('../data/data-1234.json');
+//var data_4321 = require('../data/data-4321.json');
 
 function Main() {
-  const [data, setData] = useState(data_1234.data);
+  const [data, setData] = useState([0]);
+  const [dataCategory, setDataCategory] = useState('1234');
 
   function toggleClickHandler() {
-    if (data === data_1234.data) {
-      //setData(data_4321.data)
-      axios.get('http://localhost:8080/4321')
-      .then(res => {
-        //const persons = res.data;
-        console.log('res:', res)
-        setData(res.data.data);
-      })
-    } else {
-      setData(data_1234.data)
-    }
+    setDataCategory((dataCategory === '1234') ? '4321' : '1234')
+    console.log('toggle dataCategory:', dataCategory)
   }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      console.log('useEffect dataCategory:', dataCategory)
+      const response = await axios.get(`http://localhost:8080/${dataCategory}`);
+      setData(response.data.data);
+    }
+    
+    fetchData();
+  }, [dataCategory]);
 
   return (
     <div>
@@ -38,7 +40,12 @@ function Main() {
 export default Main;
 
 // helpers
+function getData(url: string) {
+  
+}
+
 function mean(arr: Array<number>) {
+  //console.log('arr:', arr)
   return arr.reduce((accumulator, currentValue) => accumulator + currentValue) / arr.length;
 }
 
