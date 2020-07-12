@@ -41,7 +41,7 @@ function App() {
   return (
     <div className="App">
       <p />
-      {dataCategory === '1234' ? 'data-1234.json' : 'data-4321.json'}
+      {`data-${dataCategory}.json`}
 
       <SimpleTable 
         mean={String(mean(data).toFixed(6))} 
