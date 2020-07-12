@@ -18,8 +18,6 @@ function createData(name: string, value: string) {
   return { name, value };
 }
 
-
-
 type SimpleTableProps = {
   mean: string,
   median: string,
