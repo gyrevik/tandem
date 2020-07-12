@@ -39,7 +39,7 @@ export default function SimpleCard({ label, value }: CardProps) {
           {value}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          mean
+          {label}
         </Typography>
       </CardContent>
     </Card>

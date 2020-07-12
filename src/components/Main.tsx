@@ -25,9 +25,8 @@ function Main() {
   return (
     <div className="App">
       <SimpleCard label='mean' value={mean(data)} />
-      <div>mean: {mean(data)}</div>
-      <div>median: {median(data)}</div>
-      <div>standard deviation: {standard_deviation(data)}</div>
+      <SimpleCard label='median' value={median(data)} />
+      <SimpleCard label='standard deviation' value={standard_deviation(data)} />
       <div>mode: {mode(data)}</div>
       
       <Toggle ClickHandler={toggleClickHandler} />
