@@ -7,7 +7,7 @@ import { MyButton } from './MyButton';
 import SimpleTable from './Table';
 import { trim } from 'lodash';
 
-function Main() {
+function App() {
   const [data, setData] = useState([0]);
   const [dataCategory, setDataCategory] = useState('1234');
   const [inputValue, setInputValue] = useState<string>("");
@@ -61,4 +61,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default App;
