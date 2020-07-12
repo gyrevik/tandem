@@ -6,6 +6,6 @@ interface MyButtonProps {
     message: string
 }
 
-export function Toggle(Props: MyButtonProps) {
+export function MyButton(Props: MyButtonProps) {
     return <Button variant="contained" onClick={Props.ClickHandler}>{Props.message}</Button>
 }

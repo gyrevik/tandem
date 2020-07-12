@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import * as _ from 'lodash';
 import axios from 'axios';
-import { Toggle } from './MyButton';
+import { MyButton } from './MyButton';
 import Tile from './Tile';
 
 function Main() {
@@ -29,7 +29,7 @@ function Main() {
       <Tile label='standard deviation' value={String(standard_deviation(data))} />
       <Tile label='mode' value={String(mode(data))} />
       <p />
-      <Toggle ClickHandler={toggleClickHandler} message={'Change Data Set'} />
+      <MyButton ClickHandler={toggleClickHandler} message={'Change Data Set'} />
     </div>
   );
 }
