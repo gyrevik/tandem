@@ -47,7 +47,7 @@ function Main() {
     <div className="App">
       <Tile label='mean' value={String(mean(data).toFixed(6))} />
       <Tile label='median' value={String(median(data).toFixed(6))} />
-      <Tile label='standard deviation' value={String(standard_deviation(data).toFixed(6))} />
+      <Tile label='standard deviation' value={String(standard_deviation_2(data).toFixed(6))} />
       <Tile label='mode' value={String(mode(data)[0].toFixed(6))} />
       <p />
       <MyButton ClickHandler={toggleClickHandler} message={'Change Data Set'} />
@@ -98,3 +98,10 @@ function standard_deviation(array: Array<number>) {
   var avg = _.sum(array) / array.length;
   return Math.sqrt(_.sum(_.map(array, (i) => Math.pow((i - avg), 2))) / array.length);
 };
+
+function standard_deviation_2(array: Array<number>) {
+  const n = array.length;
+  const mean = array.reduce((a,b) => a+b)/n;
+  const s = Math.sqrt(array.map(x => Math.pow(x-mean,2)).reduce((a,b) => a+b)/n);
+  return s;
+}
