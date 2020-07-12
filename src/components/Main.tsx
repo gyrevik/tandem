@@ -29,9 +29,7 @@ function Main() {
       <Tile label='standard deviation' value={String(standard_deviation(data))} />
       <Tile label='mode' value={String(mode(data))} />
       <p />
-      <Toggle ClickHandler={toggleClickHandler} message={'passed in'} />
-
-      
+      <Toggle ClickHandler={toggleClickHandler} message={'Change Data Set'} />
     </div>
   );
 }
