@@ -5,6 +5,7 @@ import axios from 'axios';
 import { TextField } from '@material-ui/core';
 import { MyButton } from './MyButton';
 import Tile from './Tile';
+import { trim } from 'lodash';
 
 function Main() {
   const [data, setData] = useState([0]);
@@ -21,7 +22,11 @@ function Main() {
   }
 
   function addClickHandler() {
-    console.log('addClickHandler inputValue:', inputValue)
+    console.log('addClickHandler inputValue:', inputValue);
+    if (trim(inputValue) == '') return;
+    data.push(Number(inputValue));
+    setData([...data]);
+    console.log('data:', data);
   }
 
   useEffect(() => {
