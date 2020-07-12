@@ -28,7 +28,7 @@ function Main() {
       <Tile label='median' value={String(median(data))} />
       <Tile label='standard deviation' value={String(standard_deviation(data))} />
       <Tile label='mode' value={String(mode(data))} />
-      
+      <p />
       <Toggle ClickHandler={toggleClickHandler} />
     </div>
   );

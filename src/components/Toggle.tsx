@@ -6,5 +6,5 @@ interface ToggleProps {
 }
 
 export function Toggle(Props: ToggleProps) {
-    return <Button onClick={Props.ClickHandler}>Toggle Data</Button>
+    return <Button variant="contained" onClick={Props.ClickHandler}>Toggle Data</Button>
 }
