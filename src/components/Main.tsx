@@ -5,6 +5,7 @@ import axios from 'axios';
 import { TextField } from '@material-ui/core';
 import { MyButton } from './MyButton';
 import Tile from './Tile';
+import SimpleTable from './Table';
 import { trim } from 'lodash';
 
 function Main() {
@@ -42,6 +43,11 @@ function Main() {
     <div className="App">
       <p />
       {dataCategory === '1234' ? 'data-1234.json' : 'data-4321.json'}
+
+      <SimpleTable />
+
+
+
       <Tile label='mean' value={String(mean(data).toFixed(6))} />
       <Tile label='median' value={String(median(data).toFixed(6))} />
       <Tile label='standard deviation' value={String(standard_deviation_2(data).toFixed(6))} />
