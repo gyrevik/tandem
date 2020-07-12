@@ -67,9 +67,9 @@ function Main() {
       <p />
       <MyButton ClickHandler={toggleClickHandler} message={'Change Data Set'} />
       <p />
-      <Input />
+      
+      <TextField value={inputValue} onChange={handleChange} />
       <MyButton ClickHandler={addClickHandler} message={'Add'} />
-      <input value={inputValue} onChange={handleChange} />
     </div>
   );
 }
