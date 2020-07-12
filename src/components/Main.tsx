@@ -44,9 +44,12 @@ function Main() {
       <p />
       {dataCategory === '1234' ? 'data-1234.json' : 'data-4321.json'}
 
-      <SimpleTable />
-
-
+      <SimpleTable 
+        mean={String(mean(data).toFixed(6))} 
+        median={String(median(data).toFixed(6))} 
+        standardDeviation={String(standard_deviation_2(data).toFixed(6))} 
+        mode={String(mode(data)[0].toFixed(6))} 
+      />
 
       <Tile label='mean' value={String(mean(data).toFixed(6))} />
       <Tile label='median' value={String(median(data).toFixed(6))} />
