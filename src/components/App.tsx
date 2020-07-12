@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import axios from 'axios';
+import config from '../config.json';
 import { mean, median, standard_deviation_2, mode } from '../util/util';
 import { TextField } from '@material-ui/core';
 import { MyButton } from './MyButton';
@@ -26,7 +27,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(`http://localhost:8080/${dataCategory}`);
+      const response = await axios.get(`${config.tandem_server_path}${dataCategory}`);
       setData(response.data.data);
     }
     
