@@ -13,6 +13,7 @@ function Home() {
   const [dataSource, setDataSource] = useState(config.data_source_1);
   const [endPoint, setEndPoint] = useState(config.end_point_1);
   const [inputValue, setInputValue] = useState<string>(config.default_add);
+  const [inputMessage, setInputMessage] = useState<string>(config.default_msg);
 
   function toggleClickHandler() {
     setDataSource((dataSource === config.data_source_1) ? config.data_source_2 : config.data_source_1)
@@ -47,6 +48,10 @@ function Home() {
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setInputValue(e.target.value);
+    if (e.target.value === config.default_add)
+      setInputMessage(config.default_msg);
+    else
+      setInputMessage('')
   }
 
   return (
@@ -68,6 +73,8 @@ function Home() {
       <TextField value={inputValue} onChange={handleChange} />
       &nbsp;&nbsp;&nbsp;&nbsp;
       <MyButton ClickHandler={addClickHandler} message={'Add'} />
+      <p />
+      {inputMessage}
     </div>
   );
 }
